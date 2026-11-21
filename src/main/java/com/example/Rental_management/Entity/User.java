@@ -7,6 +7,6 @@ public class User {
  private String full_name;
  private String email;
  private String password;
- private String phon_number;
- private BigDecimal trust_scor;
+ private String phone_number;
+ private BigDecimal trust_score;
 }
