@@ -17,12 +17,8 @@ public class Rental_items {
     private Integer item_id;
 
     @ManyToOne
-    @JoinColumn(name = "item_owner_id")
-    private User item_owner_id;
-
-    @ManyToOne
     @JoinColumn(name = "category_id")
-    private Integer category_id;
+    private Categories category_id;
 
     @Column(name = "item_name")
     private String item_name;
