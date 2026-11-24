@@ -10,15 +10,16 @@ import java.util.Optional;
 
 @Service
 public class Rental_detailsService {
+
     @Autowired
     Rental_detailsRepository rental_detailsRepository;
 
-    public Rental_details insert(Rental_details rental_details) {
-        return rental_detailsRepository.save(rental_details);
+    public Rental_details insert(Rental_details data) {
+        return rental_detailsRepository.save(data);
     }
 
-    public List<Rental_details> insertmany(List<Rental_details> rental_details) {
-        return rental_detailsRepository.saveAll(rental_details);
+    public List<Rental_details> insertmany(List<Rental_details> data) {
+        return rental_detailsRepository.saveAll(data);
     }
 
     public List<Rental_details> fetch() {
@@ -29,7 +30,25 @@ public class Rental_detailsService {
         return rental_detailsRepository.findById(id);
     }
 
-    public void delete(Integer id) {
+    public Rental_details updatebyid(Integer id, Rental_details newdata) {
+
+        Rental_details olddata = rental_detailsRepository.findById(id).orElse(null);
+
+        if (olddata != null) {
+            olddata.setRental_requests(newdata.getRental_requests());
+            olddata.setTotal_rental_amount(newdata.getTotal_rental_amount());
+            olddata.setActual_pickup_date(newdata.getActual_pickup_date());
+            olddata.setActual_return_date(newdata.getActual_return_date());
+            olddata.setRental_status(newdata.getRental_status());
+
+            return rental_detailsRepository.save(olddata);
+        }
+
+        return null;
+    }
+
+    public String delete(Integer id) {
         rental_detailsRepository.deleteById(id);
+        return "Rental details deleted successfully";
     }
 }
