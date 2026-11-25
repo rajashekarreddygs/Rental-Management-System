@@ -23,7 +23,7 @@ public class Notification {
 
     @ManyToOne
     @JoinColumn(name = "rental_id")
-    private Rental rental;
+    private Rental_details rental_details;
 
     @Column(name = "notification_type")
     private String notification_type;

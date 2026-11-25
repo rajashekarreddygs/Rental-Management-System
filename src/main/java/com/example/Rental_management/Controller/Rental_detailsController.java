@@ -6,21 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/Rental_details")
 public class Rental_detailsController {
+
     @Autowired
     Rental_detailsService rental_detailsService;
 
     @PostMapping("/insert")
-    public Rental_details insert(@RequestBody Rental_details rental_details) {
-        return rental_detailsService.insert(rental_details);
+    public Rental_details insert(@RequestBody Rental_details data) {
+        return rental_detailsService.insert(data);
     }
 
     @PostMapping("/insertmany")
-    public List<Rental_details> insertmany(@RequestBody List<Rental_details> rental_details) {
-        return rental_detailsService.insertmany(rental_details);
+    public List<Rental_details> insertmany(@RequestBody List<Rental_details> data) {
+        return rental_detailsService.insertmany(data);
     }
 
     @GetMapping("/fetch")
@@ -29,15 +31,17 @@ public class Rental_detailsController {
     }
 
     @GetMapping("/fetchbyid/{id}")
-    public Rental_details fetchbyid(@PathVariable Integer id) {
-        return rental_detailsService.fetchbyid(id).orElse(null);
+    public Optional<Rental_details> fetchbyid(@PathVariable Integer id) {
+        return rental_detailsService.fetchbyid(id);
     }
 
-
+    @PutMapping("/updatebyid/{id}")
+    public Rental_details updatebyid(@PathVariable Integer id, @RequestBody Rental_details data) {
+        return rental_detailsService.updatebyid(id, data);
+    }
 
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
-        rental_detailsService.delete(id);
-        return "Rental details deleted successfully";
+        return rental_detailsService.delete(id);
     }
 }
