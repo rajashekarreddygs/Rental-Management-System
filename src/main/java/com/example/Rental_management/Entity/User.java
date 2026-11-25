@@ -7,33 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Entity
-<<<<<<< HEAD
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
- private Integer user_id;
-
-    @Column(name = "full_name",nullable = false)
- private String full_name;
-
-    @Column(name = "email", nullable = false)
- private String email;
-
-    @Column(name = "password", nullable = false)
- private String password;
-
-    @Column(name = "phon_number",nullable = false)
- private String phon_number;
-
-    @Column(name = "trust_score")
- private BigDecimal trust_score;
-}
-=======
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -59,4 +32,4 @@ public class User {
     @Column(name = "trust_score")
     private BigDecimal trust_score;
 }
->>>>>>> origin/main
+
