@@ -6,29 +6,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "User")
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
- private Integer user_id;
+    private Integer user_id;
 
-    @Column(name = "full_name",nullable = false)
- private String full_name;
+    @Column(name = "full_name")
+    private String full_name;
 
-    @Column(name = "email", nullable = false)
- private String email;
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "password", nullable = false)
- private String password;
+    @Column(name = "password")
+    private String password;
 
-    @Column(name = "phon_number",nullable = false)
- private String phon_number;
+    @Column(name = "phone_number")
+    private String phone_number;
 
     @Column(name = "trust_score")
- private BigDecimal trust_score;
+    private BigDecimal trust_score;
 }
+
