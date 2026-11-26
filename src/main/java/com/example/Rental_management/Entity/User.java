@@ -32,10 +32,3 @@ public class User {
     private BigDecimal trust_score;
 }
 
-
- private String phon_number;
-
-    @Column(name = "trust_score")
- private BigDecimal trust_score;
-}
->>>>>>> b7e4047eac3369f0da167a5e8148380db9f90e25
