@@ -6,10 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-
-<<<<<<< HEAD
-
-=======
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,4 +31,4 @@ public class User {
     @Column(name = "trust_score")
  private BigDecimal trust_score;
 }
->>>>>>> b7e4047eac3369f0da167a5e8148380db9f90e25
+
